@@ -1,18 +1,22 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styled from 'styled-components';
+import styles from '../styles/Home.module.css';
 
+const H1Styles = styled.h1`
+  color: red;
+`;
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Create new Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <H1Styles>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        </H1Styles>
 
         <p className={styles.description}>
           Get started by editing{' '}
@@ -61,5 +65,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  )
+  );
 }
