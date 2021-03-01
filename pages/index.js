@@ -1,69 +1,31 @@
 import Head from 'next/head';
 import styled from 'styled-components';
-import styles from '../styles/Home.module.css';
 
 const H1Styles = styled.h1`
   color: red;
 `;
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
-        <title>Create new Next App</title>
+        <title>Ipoint</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <H1Styles>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </H1Styles>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+      <main>
+        <h1>Ipoint Idvisors</h1>
+        <p>
+          IPoint Advisors is a comprehensive advocacy, outreach and technology
+          management firm serving both public agencies and private sector
+          entities poised to transact business with these agencies. First and
+          foremost we are proactive partners with our advocacy clients. Our
+          seasoned professional staff is well-versed in public affairs and is
+          comprised of individuals that currently hold or have held positions as
+          Mayor, Council Member, Commissioner and City Manager. These same
+          individuals collectively offer our clients expertise in marketing,
+          development and technology.
         </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
