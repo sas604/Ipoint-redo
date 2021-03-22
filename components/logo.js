@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import ReactLogo from '../public/logo-large-white.svg';
 
 const LogoStyles = styled.div`
-  max-width: 300px;
+  width: clamp(150px, 20vw, 250px);
 `;
 const Logo = () => (
   <LogoStyles>

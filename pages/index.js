@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import HeaderLarge from '../components/header';
 import Layout from '../components/layout';
 
-const H1Styles = styled.h1`
-  color: red;
-`;
 export default function Home() {
   return (
     <>

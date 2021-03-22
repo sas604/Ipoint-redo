@@ -1,11 +1,27 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
+import Burger from './burger';
 import Logo from './logo';
+
 const HeaderWrapperStyles = styled.div`
   height: 50vh;
   position: relative;
-  img {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  /* *:not(:first-child) {
+    margin: 0 1.5rem;
+  } */
+  *:first-child {
     z-index: -1;
+  }
+
+  .logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -15,10 +31,13 @@ const HeaderLarge = () => (
       src="/SanDiegoBay.jpg"
       layout="fill"
       objectFit="cover"
-      objectPosition="bottom"
+      objectPosition="center"
     />
-    <Logo />
-    <nav></nav>
+    <div className="logo-wrapper">
+      <Logo />
+      <Burger />
+    </div>
+    <span className="hero-title">Building Public And Private Partnerships</span>
   </HeaderWrapperStyles>
 );
 export default HeaderLarge;

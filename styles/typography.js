@@ -8,7 +8,7 @@ html{
   font-family: nunito, sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 18px;
+  font-size: 16px;
   line-height: var(--base-line);
 }
 :is(h1,h2,h3,h4,h5,h6){
@@ -37,6 +37,14 @@ h1{
 
   }
 
+}
+.hero-title{
+  font-size: 1.852rem;
+  line-height: 2.25rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dark-red);
+  align-self: flex-end;
 }
 
 p{
