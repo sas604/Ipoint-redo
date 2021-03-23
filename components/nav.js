@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
+import { useState } from 'react';
+import Burger from './burger';
 
-const NavStyles = styled.nav`
+const NavStyles = styled(animated.nav)`
   position: absolute;
-  display: none;
+
   top: 0;
-  width: 100%;
+  right: -70%;
+  width: 70%;
   height: 100vh;
   background: var(--dark-blue);
   z-index: 99;
@@ -28,16 +32,28 @@ const NavStyles = styled.nav`
 `;
 const Nav = () => {
   const { pathname } = useRouter();
-  console.log(pathname);
+  const [navOpen, setNavOpen] = useState(false);
+  const props = useSpring({
+    x: navOpen ? '-100%' : '0%',
+  });
+  const opacity = useSpring({
+    opacity: navOpen ? 1 : 0,
+    delay: navOpen ? 200 : 0,
+  });
   return (
-    <NavStyles>
-      <Link href="/">
-        <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
-      </Link>
-      <Link href="/services">What we do</Link>
-      <Link href="/blog">Blog & News</Link>
-      <Link href="/contact">Contacts</Link>
-    </NavStyles>
+    <>
+      <Burger open={navOpen} setNavOpen={setNavOpen} />
+      <NavStyles style={props}>
+        <animated.div style={opacity}>
+          <Link href="/">
+            <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
+          </Link>
+          <Link href="/services">What we do</Link>
+          <Link href="/blog">Blog & News</Link>
+          <Link href="/contact">Contacts</Link>
+        </animated.div>
+      </NavStyles>
+    </>
   );
 };
 

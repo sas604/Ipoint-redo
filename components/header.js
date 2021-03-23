@@ -35,7 +35,6 @@ const HeaderLarge = () => (
     />
     <div className="logo-wrapper">
       <Logo />
-      <Burger />
     </div>
     <span className="hero-title">Building Public And Private Partnerships</span>
   </HeaderWrapperStyles>

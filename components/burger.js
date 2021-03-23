@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const BurgerStyles = styled.button`
+  position: absolute;
+  top: 3.6rem;
+  right: 1.5rem;
   appearance: none;
   background: transparent;
   display: flex;
@@ -13,6 +16,7 @@ const BurgerStyles = styled.button`
   padding: 0.25rem;
   border: 0;
   cursor: pointer;
+  z-index: 100;
 
   div {
     width: 100%;
@@ -21,8 +25,8 @@ const BurgerStyles = styled.button`
   }
 `;
 
-const Burger = () => (
-  <BurgerStyles type="button">
+const Burger = ({ navOpen, setNavOpen }) => (
+  <BurgerStyles type="button" onClick={() => setNavOpen((s) => !s)}>
     <div />
     <div />
     <div />

@@ -14,6 +14,10 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+html,body{
+  position:relative;
+  overflow-x:hidden;
+}
 `;
 
 export default GlobalStyles;

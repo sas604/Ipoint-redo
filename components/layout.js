@@ -1,9 +1,12 @@
-export default function Layout({ header, children, footer }) {
+import HeaderLarge from './header';
+import Nav from './nav';
+
+export default function Layout({ children }) {
   return (
-    <>
-      {header}
+    <div className="layout">
+      <Nav />
+      <HeaderLarge />
       {children}
-      {footer}
-    </>
+    </div>
   );
 }
