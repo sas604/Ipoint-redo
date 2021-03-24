@@ -15,9 +15,20 @@ html {
   box-sizing: inherit;
 }
 html,body{
+  height:100%;
   position:relative;
   overflow-x:hidden;
 }
+main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section{
+  padding:3rem 1.5rem;
+}
+.active {
+    border-bottom: 2px solid var(--red);
+  }
 `;
 
 export default GlobalStyles;

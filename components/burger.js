@@ -1,3 +1,4 @@
+import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 
 const BurgerStyles = styled.button`
@@ -25,12 +26,28 @@ const BurgerStyles = styled.button`
   }
 `;
 
-const Burger = ({ navOpen, setNavOpen }) => (
-  <BurgerStyles type="button" onClick={() => setNavOpen((s) => !s)}>
-    <div />
-    <div />
-    <div />
-  </BurgerStyles>
-);
+const Burger = ({ open, setNavOpen }) => {
+  const top = useSpring({
+    transform: open
+      ? 'translateY(8px) rotate(45deg)'
+      : 'translateY(0px)  rotate(0deg)',
+  });
+  const bottom = useSpring({
+    transform: open
+      ? 'translateY(-8px) rotate(-45deg)'
+      : 'translateY(0px)  rotate(0deg)',
+  });
+  const midle = useSpring({
+    opacity: open ? 0 : 1,
+  });
+
+  return (
+    <BurgerStyles type="button" onClick={() => setNavOpen((s) => !s)}>
+      <animated.div style={top} />
+      <animated.div style={midle} />
+      <animated.div style={bottom} />
+    </BurgerStyles>
+  );
+};
 
 export default Burger;

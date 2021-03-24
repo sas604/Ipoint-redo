@@ -22,7 +22,6 @@ html{
 
 
 h1{
-  font-size: 2.618rem;
   position:relative;
   font-size: 2.618rem;
   margin-bottom: 3rem;
@@ -45,6 +44,11 @@ h1{
   font-weight: 700;
   color: var(--dark-red);
   align-self: flex-end;
+  @media(min-width:700px){
+    font-size: clamp(1.852rem, 6vw, 3.375rem);
+    line-height: 3.75rem;
+    max-width: 700px;
+  }
 }
 
 p{
