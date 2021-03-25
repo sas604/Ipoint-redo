@@ -23,7 +23,7 @@ html{
 
 h1{
   position:relative;
-  font-size: 2.618rem;
+  font-size: 1.852rem;
   margin-bottom: 3rem;
   &::after {
     bottom: -1rem;
@@ -53,6 +53,7 @@ h1{
 
 p{
    margin: 0;
+   max-width:calc( 600px - 3rem );
  }
 `;
 export default Typography;

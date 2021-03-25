@@ -87,6 +87,7 @@ const Nav = () => {
           <Link href="/">
             <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
           </Link>
+
           <Link href="/services">What we do</Link>
           <Link href="/blog">Blog & News</Link>
           <Link href="/contact">Contacts</Link>

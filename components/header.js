@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
-import Burger from './burger';
 import Logo from './logo';
 
 const HeaderWrapperStyles = styled.div`

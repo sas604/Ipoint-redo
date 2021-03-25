@@ -20,11 +20,11 @@ html,body{
   overflow-x:hidden;
 }
 main{
-  max-width: 1200px;
+  max-width:calc( 1200px + 3rem );
   margin: 0 auto;
 }
 section{
-  padding:3rem 1.5rem;
+  padding: 3rem 1.5rem;
 }
 .active {
     border-bottom: 2px solid var(--red);
