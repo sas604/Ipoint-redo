@@ -35,6 +35,7 @@ export default class MyDocument extends Document {
           <link rel="stylesheet" href="https://use.typekit.net/mot2zbs.css" />
         </Head>
         <body>
+          <div id="modal" />
           <Main />
           <NextScript />
         </body>

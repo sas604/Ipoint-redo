@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CgArrowsExpandLeft } from 'react-icons/cg';
+import { useState } from 'react';
+import { useTransition, animated } from 'react-spring';
 import ButtonStyles from '../styles/button';
+import MemberModal from '../components/member-modal';
 
 const team = ['Bob Lowes', 'James Banks', 'Mary Rodiguez', 'Tyler McNabb'];
 const WhoSectionStyles = styled.section`
@@ -14,18 +17,34 @@ const WhoSectionStyles = styled.section`
   }
 `;
 const TeamStyles = styled.section`
+  @media (min-width: 960px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    h1 {
+      grid-column: 1/-1;
+    }
+  }
+
   p {
     margin-bottom: 1.5rem;
+    grid-column: 2/-1;
+    align-self: center;
   }
   .members {
+    grid-row: 2;
     max-width: 450px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, minmax(150px, 250px));
     gap: 1.5rem;
+    position: relative;
+  }
+  .members__description {
+    position: absolute;
+    z-index: 5;
   }
   .members__photo {
     position: relative;
-    aspect-ratio: 3/4;
   }
 `;
 
@@ -35,9 +54,18 @@ const ExpandBtn = styled(ButtonStyles)`
   padding: 0;
   position: absolute;
   z-index: 2;
-  margin: 0;
+  margin: 0.5rem;
 `;
+
+const Animated = animated(MemberModal);
 export default function Home() {
+  const [memberModal, setMemberModal] = useState(false);
+  const transitions = useTransition(memberModal, {
+    from: { position: 'absolute', opacity: 0, zIndex: 99 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  });
+
   return (
     <>
       <Head>
@@ -72,9 +100,19 @@ export default function Home() {
             constant eye on the desired outcome.
           </p>
           <div className="members ">
+            {transitions(
+              (props, item, key) =>
+                item && (
+                  <Animated key={key} style={props} close={setMemberModal} />
+                )
+            )}
             {team.map((member, i) => (
               <div key={i} className="members__photo">
-                <ExpandBtn border="none" color="var(--red)">
+                <ExpandBtn
+                  border="none"
+                  color="var(--red)"
+                  onClick={() => setMemberModal(true)}
+                >
                   <CgArrowsExpandLeft />
                 </ExpandBtn>
                 <Image

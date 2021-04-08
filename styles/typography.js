@@ -17,9 +17,12 @@ html{
   font-weight: 500;
   font-style: normal;
   line-height:calc(var(--base-line) * 2);
+ 
 }
 
-
+h3{
+  color: var(--dark-red);
+}
 
 h1{
   position:relative;
