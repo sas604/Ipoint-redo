@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
 import ButtonStyles from '../styles/button';
 import MemberModal from '../components/member-modal';
+import fetchEntries from '../utils/contentful';
 
 const team = ['Bob Lowes', 'James Banks', 'Mary Rodiguez', 'Tyler McNabb'];
 const WhoSectionStyles = styled.section`
@@ -58,7 +59,8 @@ const ExpandBtn = styled(ButtonStyles)`
 `;
 
 const Animated = animated(MemberModal);
-export default function Home() {
+
+export default function Home({ members }) {
   const [memberModal, setMemberModal] = useState(false);
   const transitions = useTransition(memberModal, {
     from: { position: 'absolute', opacity: 0, zIndex: 99 },
@@ -103,23 +105,28 @@ export default function Home() {
             {transitions(
               (props, item, key) =>
                 item && (
-                  <Animated key={key} style={props} close={setMemberModal} />
+                  <Animated
+                    key={key}
+                    style={props}
+                    member={memberModal}
+                    close={setMemberModal}
+                  />
                 )
             )}
-            {team.map((member, i) => (
+            {members.map((member, i) => (
               <div key={i} className="members__photo">
                 <ExpandBtn
                   border="none"
                   color="var(--red)"
-                  onClick={() => setMemberModal(true)}
+                  onClick={() => setMemberModal(members[i])}
                 >
                   <CgArrowsExpandLeft />
                 </ExpandBtn>
                 <Image
-                  alt={member}
+                  alt={member.name}
                   layout="fill"
                   objectFit="cover"
-                  src={`/bio${i + 1}.jpg`}
+                  src={`https:${member.avatar.fields.file.url}`}
                   objectPosition="center"
                 />
               </div>
@@ -129,4 +136,14 @@ export default function Home() {
       </main>
     </>
   );
+}
+export async function getStaticProps() {
+  const res = await fetchEntries('members');
+  const members = await res.map((p) => p.fields);
+
+  return {
+    props: {
+      members,
+    },
+  };
 }

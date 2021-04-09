@@ -10,4 +10,7 @@ module.exports = {
     // Important: return the modified config
     return config;
   },
+  images: {
+    domains: ['images.ctfassets.net'],
+  },
 };
