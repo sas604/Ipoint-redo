@@ -33,6 +33,10 @@ const CloseBtn = styled(ButtonStyles)`
   top: 10px;
   right: 18px;
   border: none;
+  :hover {
+    background-color: transparent;
+    color: var(--red);
+  }
 `;
 const MemberModal = ({ close, style, member }) => (
   <ModalStyles style={style}>

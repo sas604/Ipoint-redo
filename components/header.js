@@ -9,9 +9,6 @@ const HeaderWrapperStyles = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 1.5rem;
-  /* *:not(:first-child) {
-    margin: 0 1.5rem;
-  } */
   *:first-child {
     z-index: -1;
   }
@@ -30,6 +27,7 @@ const HeaderLarge = () => (
       layout="fill"
       objectFit="cover"
       objectPosition="center"
+      priority
     />
     <div className="logo-wrapper">
       <Logo />

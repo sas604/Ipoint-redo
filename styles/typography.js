@@ -22,6 +22,9 @@ html{
 
 h3{
   color: var(--dark-red);
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.235rem);
 }
 
 h1{

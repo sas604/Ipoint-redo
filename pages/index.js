@@ -56,6 +56,10 @@ const ExpandBtn = styled(ButtonStyles)`
   position: absolute;
   z-index: 2;
   margin: 0.5rem;
+  :hover {
+    background-color: transparent;
+    color: var(--red);
+  }
 `;
 
 const Animated = animated(MemberModal);

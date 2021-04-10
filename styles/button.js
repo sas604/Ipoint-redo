@@ -12,6 +12,11 @@ const ButtonStyles = styled.button`
   color: ${({ color }) => color || 'var(--dark-red)'};
   display: inline-block;
   text-decoration: none;
+  transition: all 0.3s;
+  :hover {
+    background-color: var(--dark-red);
+    color: white;
+  }
 `;
 
 export default ButtonStyles;
