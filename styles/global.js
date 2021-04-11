@@ -24,7 +24,7 @@ main{
   margin: 0 auto;
 }
 section{
-  padding: 3rem 1.5rem;
+  padding: 4.5rem 1.5rem;
 }
 .active {
     border-bottom: 2px solid var(--red);

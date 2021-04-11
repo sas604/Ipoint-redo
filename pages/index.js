@@ -1,77 +1,37 @@
 import Head from 'next/head';
-import styled from 'styled-components';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CgArrowsExpandLeft } from 'react-icons/cg';
 import { useState } from 'react';
-import { useTransition, animated } from 'react-spring';
-import ButtonStyles from '../styles/button';
+import { useTransition, animated, useTrail, useSpring } from 'react-spring';
 import MemberModal from '../components/member-modal';
+import ButtonStyles from '../styles/button';
 import fetchEntries from '../utils/contentful';
-
-const team = ['Bob Lowes', 'James Banks', 'Mary Rodiguez', 'Tyler McNabb'];
-const WhoSectionStyles = styled.section`
-  max-width: 600px;
-  overflow: hidden;
-  a {
-    float: right;
-  }
-`;
-const TeamStyles = styled.section`
-  @media (min-width: 960px) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    h1 {
-      grid-column: 1/-1;
-    }
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-    grid-column: 2/-1;
-    align-self: center;
-  }
-  .members {
-    grid-row: 2;
-    max-width: 450px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(2, minmax(150px, 250px));
-    gap: 1.5rem;
-    position: relative;
-  }
-  .members__description {
-    position: absolute;
-    z-index: 5;
-  }
-  .members__photo {
-    position: relative;
-  }
-`;
-
-const ExpandBtn = styled(ButtonStyles)`
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  padding: 0;
-  position: absolute;
-  z-index: 2;
-  margin: 0.5rem;
-  :hover {
-    background-color: transparent;
-    color: var(--red);
-  }
-`;
+import {
+  WhoSectionStyles,
+  TeamStyles,
+  ExpandBtn,
+  ServiceGridStyle,
+  ClientStyle,
+  ClientStripeStyle,
+} from '../styles/home-page-style';
+import ServiceCard from '../components/service-card';
 
 const Animated = animated(MemberModal);
 
-export default function Home({ members }) {
+export default function Home({ members, services, clients }) {
   const [memberModal, setMemberModal] = useState(false);
+  const trail = useSpring({
+    loop: { reverse: true },
+    from: { x: 0 },
+    to: { x: -1950 },
+    config: { duration: 15000 },
+  });
   const transitions = useTransition(memberModal, {
     from: { position: 'absolute', opacity: 0, zIndex: 99 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
   });
-
   return (
     <>
       <Head>
@@ -137,17 +97,53 @@ export default function Home({ members }) {
             ))}
           </div>
         </TeamStyles>
+        <section>
+          <h1>What We Offer</h1>
+          <ServiceGridStyle>
+            {services.map((service, i) => (
+              <ServiceCard
+                key={i}
+                icon={service.icon}
+                title={service.name}
+                desc={service.description}
+              />
+            ))}
+          </ServiceGridStyle>
+        </section>
+        <ClientStripeStyle>
+          <h1>Our Partners</h1>
+          <div>
+            <animated.div style={trail}>
+              {clients.map((client, i) => (
+                <ClientStyle key={`client-${i}`}>{client.name}</ClientStyle>
+              ))}
+            </animated.div>
+          </div>
+        </ClientStripeStyle>
       </main>
     </>
   );
 }
+
+// get members from contentful
 export async function getStaticProps() {
-  const res = await fetchEntries('members');
-  const members = await res.map((p) => p.fields);
+  const membersPromise = fetchEntries({ content_type: 'member' });
+  const servicePromise = fetchEntries({ content_type: 'service' });
+  const partnersPromise = fetchEntries({ content_type: 'clients' });
+  const data = await Promise.all([
+    membersPromise,
+    servicePromise,
+    partnersPromise,
+  ]);
+  const [members, services, clients] = data.map((arr) =>
+    arr.map((el) => el.fields)
+  );
 
   return {
     props: {
       members,
+      services,
+      clients,
     },
   };
 }

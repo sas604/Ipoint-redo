@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { CgClose } from 'react-icons/cg';
 import ButtonStyles from '../styles/button';
+import { ExpandBtn } from '../styles/home-page-style';
 
 const ModalStyles = styled.div`
   overflow: hidden;
@@ -23,7 +24,7 @@ const ModalStyles = styled.div`
     margin-right: 1.5rem;
   }
 `;
-const CloseBtn = styled(ButtonStyles)`
+const CloseBtn = styled(ExpandBtn)`
   font-size: 1.5rem;
   line-height: 1.5rem;
   padding: 0;
@@ -32,7 +33,7 @@ const CloseBtn = styled(ButtonStyles)`
   margin: 0;
   top: 10px;
   right: 18px;
-  border: none;
+  border: 0;
   :hover {
     background-color: transparent;
     color: var(--red);

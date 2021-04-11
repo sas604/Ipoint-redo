@@ -10,5 +10,9 @@ const fetchEntries = async (query) => {
   if (entries.items) return entries.items;
   console.log(`Error getting Entries for.`);
 };
+export const fetchContentTypes = async () => {
+  const types = await client.getContentTypes();
+  return types;
+};
 
 export default fetchEntries;
