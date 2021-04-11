@@ -26,6 +26,9 @@ main{
 section{
   padding: 4.5rem 1.5rem;
 }
+.fixed {
+  overflow: hidden;
+}
 .active {
     border-bottom: 2px solid var(--red);
   }
