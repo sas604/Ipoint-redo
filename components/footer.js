@@ -4,13 +4,13 @@ import { BsEnvelope, BsMap, BsPhone } from 'react-icons/bs';
 
 const FooterStyles = styled.footer`
   margin-top: 13.5rem;
-  padding: 4.5rem 1.5rem;
+  padding: 4.5rem 1.5rem 1.5rem;
   background-color: var(--dark-blue);
   display: flex;
   flex-wrap: wrap;
   color: var(--light-gray);
   > * {
-    flex: 1 350px;
+    flex: 3 350px;
   }
   ul {
     padding: 0;
@@ -19,6 +19,7 @@ const FooterStyles = styled.footer`
       display: flex;
       align-items: center;
       color: var(--light-gray);
+      text-decoration: none;
       * + * {
         margin-left: 1rem;
       }
@@ -31,7 +32,15 @@ const FooterStyles = styled.footer`
     padding: 0;
     display: flex;
     font-size: 1.85rem;
-    justify-content: space-evenly;
+    justify-content: center;
+    * + * {
+      margin-left: 1.5rem;
+    }
+  }
+  .copyright {
+    margin-top: 1.5rem;
+    text-align: center;
+    flex: 100%;
   }
   addres {
     svg {
@@ -39,7 +48,7 @@ const FooterStyles = styled.footer`
     }
   }
 `;
-
+const date = new Date();
 const Footer = () => (
   <FooterStyles>
     <ul className="social">
@@ -93,11 +102,9 @@ const Footer = () => (
         </li>
       </ul>
     </address>
-    <div>
-      <h2>Site Map</h2>
-    </div>
-    <div>
-      <p>copy</p>
+
+    <div className="copyright">
+      <span>All rigths reserved &#169;{date.getFullYear()} </span>
     </div>
   </FooterStyles>
 );
