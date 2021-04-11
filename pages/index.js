@@ -135,7 +135,7 @@ export async function getStaticProps() {
     servicePromise,
     partnersPromise,
   ]);
-  const [members, services, clients] = data.map((arr) =>
+  const [members, services, clients] = await data.map((arr) =>
     arr.map((el) => el.fields)
   );
 

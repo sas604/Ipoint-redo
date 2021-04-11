@@ -56,7 +56,7 @@ export const ExpandBtn = styled(ButtonStyles)`
 `;
 export const ServiceGridStyle = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 `;
 export const ClientStyle = styled(animated.span)`
@@ -68,11 +68,14 @@ export const ClientStyle = styled(animated.span)`
   padding: 1.5rem;
   color: #828282;
   text-transform: uppercase;
+  font-style: italic;
 `;
 export const ClientStripeStyle = styled.section`
-  div {
+  & > div {
+    left: 0;
+    position: absolute;
     background-color: var(--light-gray);
-    margin: 0 -1.5rem;
+    min-width: 100vw;
   }
   div > div {
     display: flex;
