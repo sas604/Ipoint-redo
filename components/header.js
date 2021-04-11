@@ -27,6 +27,7 @@ const HeaderLarge = () => (
       layout="fill"
       objectFit="cover"
       objectPosition="center"
+      alt=""
       priority
     />
     <div className="logo-wrapper">

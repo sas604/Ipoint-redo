@@ -44,23 +44,23 @@ const Footer = () => (
   <FooterStyles>
     <ul className="social">
       <li>
-        <a href="https://www.linkedin.com">
+        <a aria-label="linkedin" href="https://www.linkedin.com">
           <GrLinkedin />
         </a>
       </li>
       <li>
-        <a href="https://www.instagram.com/">
+        <a aria-label="instagram" href="https://www.instagram.com/">
           <GrInstagram />
         </a>
       </li>
 
       <li>
-        <a href="https://www.twitter.com/">
+        <a aria-label="twitter" href="https://www.twitter.com/">
           <GrTwitter />
         </a>
       </li>
       <li>
-        <a href="https://www.facebook.com/">
+        <a aria-label="facebook" href="https://www.facebook.com/">
           <GrFacebook />
         </a>
       </li>

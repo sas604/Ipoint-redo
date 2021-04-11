@@ -83,6 +83,7 @@ export default function Home({ members, services, clients }) {
                   border="none"
                   color="var(--red)"
                   onClick={() => setMemberModal(members[i])}
+                  aria-label="expand"
                 >
                   <CgArrowsExpandLeft />
                 </ExpandBtn>
