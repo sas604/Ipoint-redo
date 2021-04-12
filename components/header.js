@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Logo from './logo';
 
 const HeaderWrapperStyles = styled.div`
-  height: 50vh;
+  height: ${({ title }) => (!title ? '50vh' : 'unset')};
   position: relative;
   display: flex;
   flex-direction: column;
@@ -20,8 +20,8 @@ const HeaderWrapperStyles = styled.div`
   }
 `;
 
-const HeaderLarge = () => (
-  <HeaderWrapperStyles>
+const HeaderLarge = ({ title }) => (
+  <HeaderWrapperStyles title={title}>
     <Image
       src="/SanDiegoBay.jpg"
       layout="fill"
@@ -33,7 +33,11 @@ const HeaderLarge = () => (
     <div className="logo-wrapper">
       <Logo />
     </div>
-    <span className="hero-title">Building Public And Private Partnerships</span>
+    {!title && (
+      <span className="hero-title">
+        Building Public And Private Partnerships
+      </span>
+    )}
   </HeaderWrapperStyles>
 );
 export default HeaderLarge;

@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { CgArrowsExpandLeft } from 'react-icons/cg';
 import { useState } from 'react';
-import { useTransition, animated, useTrail, useSpring } from 'react-spring';
+import { useTransition, animated, useSpring } from 'react-spring';
 import MemberModal from '../components/member-modal';
+import Layout from '../components/layout';
 import ButtonStyles from '../styles/button';
 import fetchEntries from '../utils/contentful';
+
 import {
   WhoSectionStyles,
   TeamStyles,
@@ -33,10 +35,7 @@ export default function Home({ members, services, clients }) {
     leave: { opacity: 0 },
   });
   return (
-    <>
-      <Head>
-        <title>Ipoint</title>
-      </Head>
+    <Layout>
       <main>
         <WhoSectionStyles>
           <h1>Who We Are</h1>
@@ -107,6 +106,7 @@ export default function Home({ members, services, clients }) {
                 icon={service.icon}
                 title={service.name}
                 desc={service.description}
+                category={service.category}
               />
             ))}
           </ServiceGridStyle>
@@ -122,14 +122,17 @@ export default function Home({ members, services, clients }) {
           </div>
         </ClientStripeStyle>
       </main>
-    </>
+    </Layout>
   );
 }
 
 // get members from contentful
 export async function getStaticProps() {
   const membersPromise = fetchEntries({ content_type: 'member' });
-  const servicePromise = fetchEntries({ content_type: 'service' });
+  const servicePromise = fetchEntries({
+    content_type: 'service',
+    'fields.icon[exists]': true,
+  });
   const partnersPromise = fetchEntries({ content_type: 'clients' });
   const data = await Promise.all([
     membersPromise,
