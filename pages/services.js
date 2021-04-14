@@ -14,6 +14,7 @@ const ServiceStyles = styled.section`
     color: white;
     padding: 9rem 3rem;
     position: relative;
+    margin: 0 -1.5rem;
     img {
       z-index: -1;
     }
@@ -48,7 +49,7 @@ export default function Services({ services }) {
                 Working with private sector organizations to support and promote
                 their endeavor in the public sector arena, IPoint Advisors
                 provides the following services that are tailored to meet our
-                clients' specific objectives:
+                clients' specific objectives
               </p>
             </div>
 
@@ -81,7 +82,7 @@ export default function Services({ services }) {
                 each task or program, while working closely with our client to
                 achieve their particular goal or objective. The following IPoint
                 Advisors services can be provided separately or in any
-                combination as a broad-based program:
+                combination as a broad-based program
               </p>
             </div>
 

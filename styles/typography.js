@@ -31,6 +31,7 @@ h1{
   position:relative;
   font-size: 1.852rem;
   margin-bottom: 3rem;
+  max-width:calc( 600px - 3rem );
   &::after {
     bottom: -1rem;
     left: 0;
@@ -60,6 +61,9 @@ h1{
 p{
    margin: 0;
    max-width:calc( 600px - 3rem );
+ }
+ p+p{
+   margin-top: 1.5rem;
  }
 `;
 export default Typography;

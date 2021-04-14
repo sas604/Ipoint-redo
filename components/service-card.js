@@ -15,7 +15,7 @@ const ServiceCardStyle = styled.div`
 const ServiceCard = ({ title, icon, desc, category }) => {
   const descPrev = desc.slice(0, 160).split(' ');
   const prewiev = descPrev.slice(0, descPrev.length - 1).join(' ');
-  console.log(prewiev);
+
   return (
     <ServiceCardStyle>
       <div>

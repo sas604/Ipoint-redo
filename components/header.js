@@ -4,6 +4,10 @@ import Logo from './logo';
 
 const HeaderWrapperStyles = styled.div`
   height: ${({ title }) => (!title ? '50vh' : 'unset')};
+
+  img {
+    z-index: -1;
+  }
   position: relative;
   display: flex;
   flex-direction: column;
@@ -17,11 +21,12 @@ const HeaderWrapperStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1;
   }
 `;
 
-const HeaderLarge = ({ title }) => (
-  <HeaderWrapperStyles title={title}>
+const HeaderLarge = ({ title, category }) => (
+  <HeaderWrapperStyles title={title} category={category}>
     <Image
       src="/SanDiegoBay.jpg"
       layout="fill"
