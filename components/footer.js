@@ -110,8 +110,8 @@ const Footer = () => (
         <span>All rigths reserved &#169;{date.getFullYear()} </span>
       </div>
     </FooterStyles>
-    <Link href="/services/">What we do</Link>
-    <Link scroll href="/blog/">
+    <Link href="/services">What we do</Link>
+    <Link scroll href="/blog">
       Blog & News
     </Link>
   </>

@@ -70,10 +70,10 @@ const Nav = () => {
   if (windowWidth > 700) {
     return (
       <BigNavStyles>
-        <Link href="/" scroll>
+        <Link href="/">
           <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
         </Link>
-        <Link href="/services" scroll>
+        <Link href="/services">
           <a className={pathname === '/services' ? 'active' : ''}>What We Do</a>
         </Link>
         <Link href="/blog">
