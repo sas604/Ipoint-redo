@@ -39,7 +39,7 @@ h1{
     position: absolute;
     width: 100px;
     height: 3px;
-    background-color:red;
+    background-color:var(--dark-red);
 
   }
 
@@ -49,7 +49,7 @@ h1{
   line-height: 2.25rem;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--dark-red);
+  color: var(--light-gray);
   align-self: flex-end;
   @media(min-width:700px){
     font-size: clamp(1.852rem, 6vw, 3.375rem);

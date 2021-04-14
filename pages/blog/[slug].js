@@ -47,7 +47,7 @@ export default function Post({ post }) {
               <br />
               <span>{post.category}</span>
             </span>
-            <div>
+            <div className="question">
               <span>
                 Have A question ? <Link href="/contact">Contact us </Link>
               </span>
