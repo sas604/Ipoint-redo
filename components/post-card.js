@@ -48,7 +48,7 @@ const PostCard = ({ post }) => {
       />
       <h2>{post.title}</h2>
       <p>{preview} ...</p>
-      <Link href={`blog/${post.slug}`} passHref>
+      <Link href={`/blog/${post.slug}`} passHref>
         <ReadMoreStyles
           category={post.category}
           color="white"

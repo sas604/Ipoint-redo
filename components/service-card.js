@@ -30,7 +30,7 @@ const ServiceCard = ({ title, icon, desc, category }) => {
       <p>
         {prewiev} {prewiev.length < desc.length && ' ...'}
       </p>
-      <Link passHref href={`services/#${category}`}>
+      <Link passHref href={`/services/#${category}`}>
         <ButtonStyles as="a">Learn More</ButtonStyles>
       </Link>
     </ServiceCardStyle>

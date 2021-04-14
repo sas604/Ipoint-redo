@@ -70,11 +70,15 @@ const Nav = () => {
   if (windowWidth > 700) {
     return (
       <BigNavStyles>
-        <Link href="/">
+        <Link href="/" scroll>
           <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
         </Link>
-        <Link href="/services">What we do</Link>
-        <Link href="/blog">Blog & News</Link>
+        <Link href="/services" scroll>
+          <a className={pathname === '/services' ? 'active' : ''}>What We Do</a>
+        </Link>
+        <Link href="/blog">
+          <a className={pathname === '/blog' ? 'active' : ''}>Blog & News</a>
+        </Link>
         <Link href="/contact">Contacts</Link>
       </BigNavStyles>
     );
@@ -88,9 +92,15 @@ const Nav = () => {
             <a className={pathname === '/' ? 'active' : ''}>Who we are</a>
           </Link>
 
-          <Link href="/services">What we do</Link>
-          <Link href="/blog">Blog & News</Link>
-          <Link href="/contact">Contacts</Link>
+          <Link scroll={false} href="/services">
+            What we do
+          </Link>
+          <Link scroll={false} href="/blog">
+            Blog & News
+          </Link>
+          <Link scroll={false} href="/contact">
+            Contacts
+          </Link>
         </animated.div>
       </NavStyles>
     </>
