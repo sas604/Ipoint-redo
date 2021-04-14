@@ -10,14 +10,15 @@ const GlobalStyles = createGlobalStyle`
 }
 html {
   box-sizing: border-box;
+  height:100%;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 html,body{
-  height:100%;
-  position:relative;
-  overflow-x:hidden;
+  min-height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 main{
   max-width:calc( 1200px + 3rem );
@@ -27,8 +28,10 @@ section{
   padding: 4.5rem 1.5rem;
 }
 .fixed {
+  height:100%;
   overflow: hidden;
 }
+
 .active {
     border-bottom: 2px solid var(--red);
   }
